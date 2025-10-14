@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import styles from './css/dashboard.module.css';
 import AuthGuard from './AuthGuard';
 
@@ -43,9 +44,9 @@ export default function Dashboard() {
         {/* Sidebar */}
         <aside className={styles.sidebar}>
           <div className={styles.logo}>
-            <img src="/logo.png" alt="Mock Board Logo" className={styles.logoImage} />
-            <img src="/AYL_LOGO.png" alt="AYL Logo" className={styles.logoImage1} />
-            <img src="/sbit_logo.png" alt="SBIT Logo" className={styles.logoImage2} />
+            <Image src="/logo.png" alt="Mock Board Logo" className={styles.logoImage} />
+            <Image src="/AYL_LOGO.png" alt="AYL Logo" className={styles.logoImage1} />
+            <Image src="/sbit_logo.png" alt="SBIT Logo" className={styles.logoImage2} />
           </div>
 
           <nav className={styles.nav}>
@@ -73,7 +74,7 @@ export default function Dashboard() {
                 🔔
               </button>
               <div className={styles.userProfile}>
-                <img
+                <Image
                   src="logo.png"
                   alt="User avatar"
                   className={styles.avatar}
