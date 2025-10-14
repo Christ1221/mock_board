@@ -44,9 +44,9 @@ export default function Dashboard() {
         {/* Sidebar */}
         <aside className={styles.sidebar}>
           <div className={styles.logo}>
-            <Image src="/logo.png" alt="Mock Board Logo" className={styles.logoImage} />
-            <Image src="/AYL_LOGO.png" alt="AYL Logo" className={styles.logoImage1} />
-            <Image src="/sbit_logo.png" alt="SBIT Logo" className={styles.logoImage2} />
+            <Image src="/logo.png" alt="Mock Board Logo" width={100} height={100} className={styles.logoImage} />
+            <Image src="/AYL_LOGO.png" alt="AYL Logo" width={100} height={100} className={styles.logoImage1} />
+            <Image src="/sbit_logo.png" alt="SBIT Logo" width={100} height={100} className={styles.logoImage2} />
           </div>
 
           <nav className={styles.nav}>
@@ -75,8 +75,10 @@ export default function Dashboard() {
               </button>
               <div className={styles.userProfile}>
                 <Image
-                  src="logo.png"
+                  src="/logo.png"
                   alt="User avatar"
+                  width={100} 
+                  height={100}
                   className={styles.avatar}
                 />
                 <div className={styles.userInfo}>
