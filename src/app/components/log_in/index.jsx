@@ -1,26 +1,44 @@
 import styles from './css/styles.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+  
 
 export default function LogIn() {
   const router = useRouter();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [isClient, setIsClient] = useState(false);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    // Prevent SSR/client mismatch
+    return null;
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login attempt:', formData);
+    try {
+      if (formData.email.trim() && formData.password.trim()) {
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem(
+          'user',
+          JSON.stringify({ name: 'John Doe', email: formData.email })
+        );
+        router.push('/dashboard');
+      } else {
+        alert('Please enter both email and password.');
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+      alert('Login failed. Please try again.');
+    }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -57,9 +75,9 @@ export default function LogIn() {
           </button>
         </form>
         <p className={styles.switchText}>
-          Don't have an account?{' '}
-          <span 
-            className={styles.switchLink} 
+          Don&apos;t have an account?{' '}
+          <span
+            className={styles.switchLink}
             onClick={() => router.push('/signup')}
           >
             Sign Up
