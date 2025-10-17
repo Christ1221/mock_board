@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./about.module.css"; // ✅ import the CSS file
+"use client";
+import styles from "./css/about.module.css";
 
 export default function About() {
   return (
@@ -7,46 +7,46 @@ export default function About() {
       {/* Breadcrumb */}
       <section className={styles.breadcrumb}>
         <p>
-          Home / <span className={styles.grayText}>About PRC Board Reviewers PH</span>
+          Home / <span className={styles.grayText}>About Librarian’s Hub</span>
         </p>
       </section>
 
       {/* About Section */}
       <section className={styles.aboutSection}>
         <img
-          src="/logo.png" // change this to your actual logo path
-          alt="PRC Board Reviewers PH"
+          src="/logo.png"
+          alt="Librarian’s Hub"
           className={styles.logo}
         />
-        <h1 className={styles.title}>About PRC Board Reviewers PH</h1>
+        <h1 className={styles.title}>About the Librarian’s Hub</h1>
         <p className={styles.description}>
-          PRC Board Reviewers PH is dedicated to helping aspiring professionals
-          pass their board exams with confidence. We provide free, quality
-          reviewers for Civil Service, LET, Criminology, and more.
+          The Librarian’s Hub is dedicated to supporting aspiring and practicing
+          librarians in their journey toward professional excellence. We provide
+          free, accessible, and quality resources for exam preparation and continuing
+          education.
         </p>
       </section>
 
       {/* Mission Section */}
       <section className={styles.missionSection}>
         <div className={styles.missionContainer}>
-          <h2 className={styles.sectionTitle}>🎯 Our Mission</h2>
+          <h2 className={styles.sectionTitle}>📘 Our Mission</h2>
           <p className={styles.missionText}>
-            At PRC Board Reviewers PH, our mission is to empower aspiring
-            professionals by providing free, accessible, and high-quality online
-            reviewers for Civil Service, LET, Criminology, NAPOLCOM, Librarian,
-            Midwifery, and more. We believe that education should be available
-            to everyone, anytime, anywhere.
+            To empower current and future librarians by providing open access to
+            study materials, review resources, and guidance that enhance their
+            knowledge, competence, and confidence in the field of library and
+            information science.
           </p>
         </div>
       </section>
 
       {/* Vision Section */}
       <section className={styles.visionSection}>
-        <h2 className={styles.sectionTitle}>🎯 Our Vision</h2>
+        <h2 className={styles.sectionTitle}>🌟 Our Vision</h2>
         <p className={styles.visionText}>
-          To be the leading free online platform that empowers every Filipino to
-          achieve their dreams through quality and accessible board exam
-          reviewers.
+          To be the most trusted online platform for librarianship review and
+          professional growth — cultivating a community where learning, sharing,
+          and service thrive together.
         </p>
       </section>
 
@@ -55,34 +55,34 @@ export default function About() {
         <h2 className={styles.sectionTitle}>💡 Our Core Values</h2>
         <div className={styles.valuesGrid}>
           <div className={styles.valueCard}>
-            <h3 className={styles.valueTitle}>Accessibility</h3>
+            <h3 className={styles.valueTitle}>Knowledge</h3>
             <p>
-              We believe that every aspiring professional deserves free access
-              to quality learning resources.
-            </p>
-          </div>
-
-          <div className={styles.valueCard}>
-            <h3 className={styles.valueTitle}>Excellence</h3>
-            <p>
-              We commit to providing reliable and updated reviewers that help
-              users pass their exams confidently.
+              We promote continuous learning and sharing of knowledge across all
+              areas of librarianship.
             </p>
           </div>
 
           <div className={styles.valueCard}>
             <h3 className={styles.valueTitle}>Integrity</h3>
             <p>
-              We uphold honesty and transparency in delivering accurate
-              information and fair assessments.
+              We uphold honesty, transparency, and ethical responsibility in
+              every aspect of service.
             </p>
           </div>
 
           <div className={styles.valueCard}>
-            <h3 className={styles.valueTitle}>Empowerment</h3>
+            <h3 className={styles.valueTitle}>Service</h3>
             <p>
-              We aim to empower Filipinos to achieve their goals and uplift
-              their communities through education.
+              We believe in helping others through access to information,
+              collaboration, and guidance.
+            </p>
+          </div>
+
+          <div className={styles.valueCard}>
+            <h3 className={styles.valueTitle}>Excellence</h3>
+            <p>
+              We aim to deliver high-quality content that supports success in
+              board exams and lifelong learning.
             </p>
           </div>
         </div>

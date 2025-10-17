@@ -1,40 +1,66 @@
+/* 🔹 Overall Page Container */
 .loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.4)
-  ),
-  url('/bg2.png') no-repeat center center/cover;
-
+  background: linear-gradient(135deg, #0070f3, #00c6ff);
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url('/bg2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
 }
 
-
+/* 🔹 Glassy Login Box */
 .loginBox {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* increased opacity to 40% */
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 400px;
+  color: white;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 
+/* 🔹 Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔹 Title */
 .title {
   text-align: center;
-  color: #333;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  letter-spacing: 1px;
 }
 
+/* 🔹 Form Layout */
 .form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
+/* 🔹 Input Groups */
 .inputGroup {
   display: flex;
   flex-direction: column;
@@ -43,55 +69,78 @@
 
 .inputGroup label {
   font-size: 0.9rem;
-  color: #666;
+  color: #f0f0f0;
 }
 
 .inputGroup input {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .inputGroup input:focus {
   outline: none;
-  border-color: #0070f3;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.3);
 }
 
+/* 🔹 Submit Button */
 .submitButton {
-  background-color: #0070f3;
+  background: linear-gradient(135deg, #0070f3, #00b3ff);
   color: white;
-  padding: 0.75rem;
+  padding: 0.9rem;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 112, 243, 0.3);
 }
 
 .submitButton:hover {
-  background-color: #0051b3;
+  background: linear-gradient(135deg, #0051b3, #0080ff);
+  transform: translateY(-3px);
 }
 
-.submitButton:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+.submitButton:active {
+  transform: translateY(1px);
 }
 
+/* 🔹 Switch Text and Link */
 .switchText {
   text-align: center;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #666;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #eee;
 }
 
 .switchLink {
-  color: #0070f3;
+  color: #00b3ff;
   text-decoration: none;
-  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .switchLink:hover {
+  color: #fff;
   text-decoration: underline;
+}
+
+/* 🔹 Optional: Add Logo */
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

@@ -1,125 +1,100 @@
-/* Global container */
 .main {
-  background-color: #f9fafb;
+  padding: 40px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
   color: #333;
-  font-family: "Inter", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Breadcrumb */
 .breadcrumb {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 16px;
-  color: #047857;
+  margin-bottom: 20px;
   font-size: 14px;
+  color: #666;
 }
 
 .grayText {
-  color: #6b7280;
+  color: #888;
 }
 
-/* About section */
+/* About Section */
 .aboutSection {
   text-align: center;
-  padding: 60px 20px;
+  margin-bottom: 60px;
 }
 
 .logo {
-  width: 96px;
-  height: 96px;
-  margin-bottom: 16px;
-}
-
-.title {
-  color: #047857;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.description {
-  max-width: 720px;
-  margin: 0 auto;
-  color: #4b5563;
-  line-height: 1.6;
-}
-
-/* Mission section */
-.missionSection {
-  background-color: #047857;
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.missionContainer {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.sectionTitle {
-  font-size: 30px;
-  font-weight: 700;
+  width: 100px;
   margin-bottom: 20px;
 }
 
-.missionText {
-  font-size: 18px;
-  line-height: 1.7;
+.title {
+  font-size: 2rem;
+  color: #0a379c;
+  margin-bottom: 15px;
 }
 
-/* Vision section */
-.visionSection {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.visionText {
-  max-width: 720px;
+.description {
+  max-width: 700px;
   margin: 0 auto;
-  color: #4b5563;
-  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Mission and Vision */
+.missionSection,
+.visionSection {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: #0a379c;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.missionText,
+.visionText {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: #444;
   line-height: 1.7;
 }
 
-/* Core Values section */
+/* Core Values */
 .valuesSection {
   text-align: center;
-  padding: 80px 20px;
+  margin-top: 60px;
 }
 
 .valuesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  max-width: 1000px;
-  margin: 0 auto;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .valueCard {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-  padding: 32px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .valueCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .valueTitle {
-  color: #047857;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.valueCard p {
-  color: #4b5563;
-  line-height: 1.6;
-  font-size: 16px;
+  color: #0a379c;
+  font-weight: 600;
+  margin-bottom: 10px;
 }

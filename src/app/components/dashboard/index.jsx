@@ -2,22 +2,12 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import styles from './css/dashboard.module.css';
-import AuthGuard from './AuthGuard';
-
-interface UserData {
-  name: string;
-  email: string;
-}
-
-interface MenuItem {
-  id: string;
-  label: string;
-}
+import styles from './css/styles.module.css';
+import { AuthGuard } from '../../utilities';
 
 export default function Dashboard() {
   const router = useRouter();
-  const [userData, setUserData] = useState<UserData>({ name: '', email: '' });
+  const [userData, setUserData] = useState({ name: '', email: '' });
   const [activeSection, setActiveSection] = useState('overview');
 
   useEffect(() => {
@@ -31,11 +21,11 @@ export default function Dashboard() {
     }
   }, []);
 
-  const menuItems: MenuItem[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'exams', label: 'Mock Exams' },
-    { id: 'about', label: 'About' },
-    { id: 'donation', label: 'Donation' },
+    const menuItems = [
+    { id: 'home', label: 'Home', dir: '/dashboard' },
+    { id: 'about', label: 'About',  dir: '/about' },
+    { id: 'exam', label: 'Exam',  dir: '/exam' },
+     { id: 'donation', label: 'Donation',  dir: '/donation' },
   ];
 
   return (
@@ -54,7 +44,10 @@ export default function Dashboard() {
               <button
                 key={item.id}
                 className={`${styles.navItem} ${activeSection === item.id ? styles.active : ''}`}
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => {
+                  setActiveSection(item.id);
+                  router.push(item.dir);
+                }}
               >
                 {item.label}
               </button>
@@ -70,9 +63,7 @@ export default function Dashboard() {
               {menuItems.find(item => item.id === activeSection)?.label}
             </div>
             <div className={styles.userSection}>
-              <button className={styles.notificationBtn} aria-label="Notifications">
-                🔔
-              </button>
+             
               <div className={styles.userProfile}>
                 <Image
                   src="/logo.png"
@@ -121,14 +112,16 @@ export default function Dashboard() {
             </div>
 
             {/* Reviewer Hub Section */}
-            <div className="reviewerHub">
-              <h2>Your Ultimate Reviewer Hub</h2>
-              <p>Where Future Librarians Turn Preparation into Success.</p>
-              <button className="startBtn">Start Reviewing Now</button>
-            </div>
+           <div className={styles.reviewerHub}>
+  <h2>Your Ultimate Reviewer Hub</h2>
+  <p>Where Future Librarians Turn Preparation into Success.</p>
+  <button className={styles.startBtn}>Start Reviewing Now</button>
+</div>
+
           </div>
         </main>
       </div>
     </AuthGuard>
   );
+
 }

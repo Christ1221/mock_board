@@ -1,0 +1,156 @@
+/* ========== LAYOUT ========== */
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #0a379c 0%, #001a66 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* space between logos */
+  margin-bottom: 30px;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+
+.logoImage,
+.logoImage1,
+.logoImage2 {
+  width: 60px;   /* uniform size */
+  height: 60px;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 6px;
+  object-fit: contain;
+}
+
+
+.nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px;
+  text-align: left;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+}
+
+/* ========== MAIN CONTENT ========== */
+.mainContent {
+  flex-grow: 1;
+  padding: 40px;
+}
+
+/* ========== EXAM SECTION ========== */
+.container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  
+}
+
+.headerSection {
+  background-image: url('/bg2.png'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  color: #0a379c;
+
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 15px;
+}
+
+
+.headerSection h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.headerSection p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.examSection {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.examSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #1c1c1c;
+}
+
+.examGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  padding: 0 30px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 25px 20px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-bottom: 4px solid #0a379c;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #666;
+  font-size: 0.95rem;
+}
