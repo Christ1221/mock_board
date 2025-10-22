@@ -18,16 +18,45 @@
 
 /* 🔹 Glassy Login Box */
 .loginBox {
-  background: rgba(255, 255, 255, 0.15);
+   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4); /* increased opacity to 40% */
+  border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 3rem 2.5rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 400px;
-  color: white;
-  animation: fadeIn 0.8s ease-in-out;
+  max-width: 420px;
+  color: #fff;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+
+
+.googleLogin {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.divider span {
+  padding: 0 1rem;
+  color: #718096;
+  font-size: 0.875rem;
 }
 
 

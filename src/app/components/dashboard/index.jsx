@@ -8,8 +8,10 @@ import { AuthGuard } from '../../utilities';
 export default function Dashboard() {
   const router = useRouter();
   const [userData, setUserData] = useState({ name: '', email: '' });
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
+    // Get user data
     try {
       const userStr = localStorage.getItem('user');
       if (userStr) {
@@ -18,13 +20,18 @@ export default function Dashboard() {
     } catch (error) {
       console.error('Error loading user data:', error);
     }
+
+    // Set active section based on current path
+    const path = window.location.pathname;
+    const currentSection = menuItems.find(item => item.dir === path)?.id || 'home';
+    setActiveSection(currentSection);
   }, []);
 
-    const menuItems = [
+   const menuItems = [
     { id: 'home', label: 'Home', dir: '/dashboard' },
-    { id: 'about', label: 'About',  dir: '/about' },
-    { id: 'exam', label: 'Exam',  dir: '/exam' },
-     { id: 'donation', label: 'Donation',  dir: '/donation' },
+    { id: 'about', label: 'About', dir: '/about' },
+    { id: 'exam', label: 'Exam', dir: '/exam' },
+
   ];
 
   return (
@@ -45,6 +52,9 @@ export default function Dashboard() {
                 className={`${styles.navItem} ${activeSection === item.id ? styles.active : ''}`}
                 onClick={() => {
                   setActiveSection(item.id);
+                  if (item.dir === '/about') {
+                    console.log('Navigating to About page');
+                  }
                   router.push(item.dir);
                 }}
               >
@@ -57,36 +67,40 @@ export default function Dashboard() {
         {/* Main Content */}
         <main className={styles.mainContent}>
           {/* Header */}
-          <header className={styles.header}>
-            <div className={styles.pageTitle}>
-              {menuItems.find(item => item.id === activeSection)?.label}
-            </div>
-            <div className={styles.userSection}>
-             
-              <div className={styles.userProfile}>
-                <Image
-                  src="/logo.png"
-                  alt="User avatar"
-                  width={100} 
-                  height={100}
-                  className={styles.avatar}
-                />
-                <div className={styles.userInfo}>
-                  <span className={styles.userName}>{userData.name}</span>
-                  <button 
-                    className={styles.logoutBtn}
-                    onClick={() => {
-                      localStorage.removeItem('isAuthenticated');
-                      localStorage.removeItem('user');
-                      router.push('/login');
-                    }}
-                  >
-                    Logout
-                  </button>
-                </div>
-              </div>
-            </div>
-          </header>
+         <header className={styles.header}>
+  <div className={styles.logoContainer}>
+    {/* You can add your logo here if needed */}
+  </div>
+
+  <div className={styles.userSection}>
+    
+
+    <div className={styles.userProfile}>
+      <Image
+        src="/user.jpg"
+        alt="User avatar"
+        width={50}
+        height={50}
+        className={styles.avatar}
+      />
+      <div className={styles.userInfo}>
+        <span className={styles.userName}>{userData.name}</span>
+      </div>
+    </div>
+
+    {/* Logout button moved outside userProfile */}
+    <button 
+      className={styles.logoutBtn}
+      onClick={() => {
+        localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('user');
+        router.push('/login');
+      }}
+    >
+      Logout
+    </button>
+  </div>
+</header>
 
           {/* Dashboard Content */}
           <div className={styles.content}>
@@ -110,12 +124,20 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Reviewer Hub Section */}
-           <div className={styles.reviewerHub}>
-  <h2>Your Ultimate Reviewer Hub</h2>
-  <p>Where Future Librarians Turn Preparation into Success.</p>
-  <button className={styles.startBtn}>Start Reviewing Now</button>
+            <div className={styles.content}>
+ 
+
+  <div className={styles.reviewerHubWrapper}>
+    <div className={styles.reviewerHub}>
+      <h2>Your Ultimate Reviewer Hub</h2>
+      <p>Where Future Librarians Turn Preparation into Success.</p>
+      <button className={styles.startBtn}>Start Reviewing Now</button>
+    </div>
+  </div>
 </div>
+
+
+
 
           </div>
         </main>

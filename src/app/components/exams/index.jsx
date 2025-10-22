@@ -13,7 +13,7 @@ export default function AvailableExams() {
     { id: "home", label: "Home", dir: "/dashboard" },
     { id: "about", label: "About", dir: "/about" },
     { id: "exam", label: "Exam", dir: "/exam" },
-    { id: "donation", label: "Donation", dir: "/donation" },
+   
   ];
 
   const exams = [
@@ -53,9 +53,9 @@ export default function AvailableExams() {
         <div className={styles.container}>
           <div className={styles.headerSection}>
             <h1>Available Exams</h1>
-            <p>
-              Browse free online reviewers for Librarian Licensure Examination (LLE) <p></p> Board Reviewers PH.
-            </p>
+       
+              Browse free online reviewers for Librarian Licensure Examination (LLE) Board Reviewers PH.
+     
           </div>
 
           <div className={styles.examSection}>

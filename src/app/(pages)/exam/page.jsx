@@ -1,6 +1,6 @@
 "use client";
-import { About } from "../../components";
+import { AvailableExams } from "../../components";
 
-export default function AboutPage() {
-  return <About />;
+export default function ExamPage() {
+  return <AvailableExams />;
 }

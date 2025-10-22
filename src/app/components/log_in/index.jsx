@@ -1,7 +1,12 @@
+'use client';
 import styles from './css/styles.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-  
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { handleGoogleSuccess } from '../../utilities/auth';
+import Image from 'next/image';
+
+const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 
 export default function LogIn() {
   const router = useRouter();
@@ -45,6 +50,39 @@ export default function LogIn() {
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
         <h1 className={styles.title}>Log In</h1>
+        
+        {/* Google Login Button */}
+        <div className={styles.googleLogin}>
+          <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+            {typeof window !== 'undefined' && (
+              <GoogleLogin
+                onSuccess={async (response) => {
+                  try {
+                    await handleGoogleSuccess(response);
+                    router.push('/dashboard');
+                  } catch (error) {
+                    console.error('Google login failed:', error);
+                    alert('Login failed. Please try again.');
+                  }
+                }}
+                onError={(err) => {
+                  // Handle FedCM AbortError and other errors gracefully
+                  console.error('Google Login Failed', err);
+                  if (err && err.error && err.error === 'idpiframe_initialization_failed') {
+                    alert('Google Sign-in not available in this browser. Please try a different browser.');
+                  } else {
+                    alert('Google login failed. Please try again.');
+                  }
+                }}
+              />
+            )}
+          </GoogleOAuthProvider>
+        </div>
+
+        <div className={styles.divider}>
+          <span>Or</span>
+        </div>
+
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
             <label htmlFor="email">Email</label>
