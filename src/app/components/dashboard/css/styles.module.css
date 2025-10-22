@@ -152,22 +152,6 @@ body {
   gap: 1.5rem;
 }
 
-.notificationBtn {
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.notificationBtn:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.05);
-}
-
 .userProfile {
   display: flex;
   align-items: center;

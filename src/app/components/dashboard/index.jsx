@@ -8,7 +8,6 @@ import { AuthGuard } from '../../utilities';
 export default function Dashboard() {
   const router = useRouter();
   const [userData, setUserData] = useState({ name: '', email: '' });
-  const [activeSection, setActiveSection] = useState('overview');
 
   useEffect(() => {
     try {
