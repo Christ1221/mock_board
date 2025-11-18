@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useRouter } from 'next/navigation';
 
@@ -261,8 +261,51 @@ function QuizPage() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [finished, setFinished] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60 * 60 * 1000);
 
   const question = questions[index];
+
+  // Timer: persist end time so refresh keeps countdown
+  useEffect(() => {
+    const key = 'lle_quiz_end';
+    let end = null;
+    try {
+      end = localStorage.getItem(key);
+    } catch (e) {
+      end = null;
+    }
+
+    if (!end) {
+      const newEnd = Date.now() + 60 * 60 * 1000; // 1 hour
+      try { localStorage.setItem(key, String(newEnd)); } catch (e) {}
+      end = String(newEnd);
+    }
+
+    const endTs = Number(end);
+    function update() {
+      const remaining = endTs - Date.now();
+      if (remaining <= 0) {
+        setTimeLeft(0);
+        setFinished(true);
+        try { localStorage.removeItem(key); } catch (e) {}
+        return;
+      }
+      setTimeLeft(remaining);
+    }
+
+    update();
+    const id = setInterval(update, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  function formatTime(ms) {
+    if (!ms || ms <= 0) return '00:00:00';
+    const total = Math.floor(ms / 1000);
+    const hrs = Math.floor(total / 3600);
+    const mins = Math.floor((total % 3600) / 60);
+    const secs = total % 60;
+    return `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
 
   function select(choiceIdx) {
     setAnswers((prev) => ({ ...prev, [index]: choiceIdx }));
@@ -270,7 +313,10 @@ function QuizPage() {
 
   function next() {
     if (index < questions.length - 1) setIndex(index + 1);
-    else setFinished(true);
+    else {
+      setFinished(true);
+      try { localStorage.removeItem('lle_quiz_end'); } catch (e) {}
+    }
   }
 
   function prev() {
@@ -280,6 +326,7 @@ function QuizPage() {
   return (
     <div className={styles.quizContainer}>
       <h1 className={styles.quizTitle}>LLE — Library Organization & Management (Practice)</h1>
+      <div className={styles.timer}>Time Remaining: {formatTime(timeLeft)}</div>
       {!finished ? (
         <div className={styles.card}>
           <div className={styles.questionBlock}>
@@ -318,7 +365,7 @@ function QuizPage() {
           </div>
           <div className={styles.controls}>
             <button onClick={() => { setIndex(0); setFinished(false); }} className={styles.controlBtn}>Review Answers</button>
-            <button onClick={() => router.push('/exam')} className={styles.controlBtn}>Back to Exams</button>
+            <button onClick={() => { try { localStorage.removeItem('lle_quiz_end'); } catch (e) {}; router.push('/exam'); }} className={styles.controlBtn}>Back to Exams</button>
           </div>
         </div>
       )}
