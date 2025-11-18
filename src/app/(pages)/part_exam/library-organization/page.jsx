@@ -250,10 +250,7 @@ const questions = [
     q: "One of the important roles of the library is to ensure compliance with copyright laws. How does the library manager implement it?",
     choices: ["Provide comprehensive training and education to library staff and users about copyright laws, fair use guidelines, and the library's copyright policies and procedures.", "Offer access to legal resources and tools that facilitate compliance with copyright laws", "Collaborate with legal experts, copyright specialists, and professional organizations to seek guidance and advice on complex copyright issues or legal questions.", "All of the above"],
   },
-  {
-    q: "Prepared by",
-    choices: ["Jimiveve A. Tamon"],
-  },
+ 
 ];
 
 function QuizPage() {

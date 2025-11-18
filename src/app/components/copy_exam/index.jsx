@@ -19,27 +19,27 @@ export default function PartExam() {
   const subjects = [
     {
       title: "Library Organization & Management",
-      desc: "Click to start the Test.",
+      desc: "PART 1 TEST.",
     },
     {
       title: "Reference, Bibliography & User Services",
-      desc: "Click to start the Test.",
+      desc: "PART 2 TEST.",
     },
     {
       title: "Indexing & Abstracting",
-      desc: "Click to start the Test.",
+      desc: "PART 3 TEST.",
     },
     {
       title: "Cataloging & Classification",
-      desc: "Click to start the Test.",
+      desc: "PART 4 TEST.",
     },
     {
       title: "Selection & Acquisition",
-      desc: "Click to start the Test.",
+      desc: "PART 5 TEST.",
     },
     {
       title: "Information Technology",
-      desc: "Click to start the Test.",
+      desc: "PART 6 TEST.",
     },
   ];
 
