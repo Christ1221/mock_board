@@ -26,8 +26,8 @@
 /* ========== SIDEBAR ========== */
 .sidebar {
   width: 250px;
-  background: linear-gradient(180deg, #0a379c 0%, #001a66 100%);
-  color: white;
+  background-color: #ffffff;
+  color: #111;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,18 +80,20 @@
 .navItem {
   background: transparent;
   border: none;
-  color: white;
+  color: #111;
   text-align: left;
   font-size: 1rem;
-  padding: 0.75rem 1rem;
+  padding: 12px 16px;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s, padding-left 0.3s;
+  transition: background 0.2s ease, padding-left 0.12s ease;
+  width: 100%;
 }
 
 .navItem:hover {
-  background: rgba(255, 255, 255, 0.15);
-  padding-left: 1.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  padding-left: 16px;
 }
 
 .active {

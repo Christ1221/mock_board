@@ -65,6 +65,13 @@ export default function AvailableExams() {
                 <div key={index} className={styles.card}>
                   <h3>{exam.title}</h3>
                   <p>Click to begin review</p>
+                  <button
+                    className={styles.beginBtn}
+                    onClick={() => router.push('/part_exam')}
+                    aria-label={`Begin review for ${exam.title}`}
+                  >
+                    Begin Review
+                  </button>
                 </div>
               ))}
             </div>
