@@ -137,6 +137,18 @@
   font-size: 0.95rem;
 }
 
+.missed {
+  margin-top: 6px;
+  color: #c53030; /* red */
+  font-weight: 600;
+}
+
+.answered {
+  margin-top: 6px;
+  color: #2f855a; /* green */
+  font-weight: 600;
+}
+
 /* Smooth fade animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }

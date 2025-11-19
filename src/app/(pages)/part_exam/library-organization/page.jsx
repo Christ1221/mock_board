@@ -351,7 +351,26 @@ function QuizPage() {
       ) : (
         <div className={styles.resultCard}>
           <h2>Review Completed</h2>
-          <p>You answered {Object.keys(answers).length} of {questions.length} questions.</p>
+            {/** compute missed questions */}
+            {(() => {
+              const answeredCount = Object.keys(answers).length;
+              const missedIndices = questions
+                .map((_, i) => i)
+                .filter((i) => answers[i] === undefined);
+              return (
+                <>
+                  <p>You answered {answeredCount} of {questions.length} questions.</p>
+                  <p style={{ marginTop: 6 }}>
+                    Missed: <strong>{missedIndices.length}</strong>
+                    {missedIndices.length > 0 && (
+                      <span style={{ marginLeft: 8 }}>
+                        (Questions: {missedIndices.map((n) => n + 1).join(', ')})
+                      </span>
+                    )}
+                  </p>
+                </>
+              );
+            })()}
           <div className={styles.summary}>
             {questions.map((q, i) => (
               <div key={i} className={styles.summaryItem}>

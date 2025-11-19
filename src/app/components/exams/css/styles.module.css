@@ -7,13 +7,17 @@
 
 /* ========== SIDEBAR ========== */
 .sidebar {
-  width: 260px;
-  background-color: #ffffff;   /* blue background */
-  color: white;                 /* <-- change font color */
-  padding: 20px;
+  width: 250px;
+  background-color: #ffffff;
+  color: #111;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-right: 1px solid rgba(0,112,243,0.12);
+  position: fixed;
+  height: 100vh;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
 }
 
 
@@ -23,15 +27,15 @@
   align-items: center;
   gap: 10px; /* space between logos */
   margin-bottom: 30px;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  flex-wrap: wrap;
 }
 
 
 .logoImage,
 .logoImage1,
 .logoImage2 {
-  width: 60px;   /* uniform size */
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 10px;
   background: #ffffff;
   padding: 6px;
@@ -77,6 +81,7 @@
 .mainContent {
   flex-grow: 1;
   padding: 40px;
+  margin-left: 250px;
 }
 
 /* ========== EXAM SECTION ========== */
@@ -93,10 +98,10 @@
   background-position: center; 
   background-repeat: no-repeat; 
   color: #0a379c;
-
+  width: 100%;
   text-align: center;
-  padding: 60px 20px;
-  border-radius: 15px;
+  padding: 60px 10px;
+  border-radius: 20px;
 }
 
 
