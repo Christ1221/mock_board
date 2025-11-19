@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/components/log_in/index.jsx", "src/app/components/landpage/index.jsx", "src/app/utilities/index.jsx", "src/app/components/sign_up/index.jsx", "src/app/(pages)/login/page.jsx", "src/app/components/dashboard/index.jsx", "src/app/components/exams/index.jsx"  ],
+, "src/app/components/log_in/index.jsx", "src/app/components/landpage/index.jsx", "src/app/utilities/index.js", "src/app/components/sign_up/index.jsx", "src/app/(pages)/login/page.jsx", "src/app/components/dashboard/index.jsx", "src/app/components/exams/index.jsx"  ],
   "exclude": [
     "node_modules"
   ]

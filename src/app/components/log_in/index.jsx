@@ -3,7 +3,7 @@ import styles from './css/styles.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import Image from 'next/image';
+import { Fetch_to } from '../../utilities';
 
 const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 
@@ -23,7 +23,13 @@ export default function LogIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    const data = await Fetch_to('/services/api/login', formData);
+
+    if (data && data.success) {
+      router.push('/dashboard');
+    } else {
+      alert(data?.message || 'Login failed. Please try again.');
+    }
   };
 
   const handleChange = (e) => {

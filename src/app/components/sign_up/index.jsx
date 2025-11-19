@@ -4,14 +4,16 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { Fetch_to } from "../../utilities";
 
 export default function SignupPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     password: "",
-    role: "student", // default role
+    confirmPassword: "",   // 🔹 Added confirm password
+    role: "student",
   });
 
   const handleChange = (e) => {
@@ -21,27 +23,24 @@ export default function SignupPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      // Save user info to localStorage (can be replaced with API later)
-      localStorage.setItem("isAuthenticated", "true");
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          name: formData.fullName,
-          email: formData.email,
-          role: formData.role,
-        })
-      );
 
-      // Redirect based on role
-      if (formData.role === "admin") {
-        router.push("/admin/dashboard");
-      } else {
-        router.push("/student/dashboard");
-      }
-    } catch (error) {
-      console.error("Signup failed:", error);
-      alert("Signup failed. Please try again.");
+    // 🔹 Password Confirmation Check
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    const data = await Fetch_to('/services/api/signup', {
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
+      role: formData.role,
+    });
+
+    if (data.success) {
+      router.push("/login");
+    } else {
+      alert(data.message);
     }
   };
 
@@ -49,15 +48,17 @@ export default function SignupPage() {
     <div className={styles.signupContainer}>
       <div className={styles.signupBox}>
         <h2 className={styles.title}>Create Account</h2>
+
         <form className={styles.form} onSubmit={handleSubmit}>
+
           <div className={styles.inputGroup}>
-            <label htmlFor="fullName">Full Name</label>
+            <label htmlFor="name">Full Name</label>
             <input
               type="text"
-              id="fullName"
-              name="fullName"
+              id="name"
+              name="name"
               placeholder="Enter your name"
-              value={formData.fullName}
+              value={formData.name}
               onChange={handleChange}
               required
             />
@@ -89,7 +90,21 @@ export default function SignupPage() {
             />
           </div>
 
-          {/* ✅ Add Role Selection */}
+          {/* 🔹 NEW Confirm Password Field */}
+          <div className={styles.inputGroup}>
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Re-enter your password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          {/* Role Selection */}
           <div className={styles.inputGroup1}>
             <label htmlFor="role">Select Role</label>
             <select
@@ -113,6 +128,7 @@ export default function SignupPage() {
           <span>Or</span>
         </div>
 
+        {/* Google Auth (unchanged) */}
         <div className={styles.googleSignup}>
           <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
             {typeof window !== "undefined" && (
@@ -120,7 +136,6 @@ export default function SignupPage() {
                 onSuccess={async (response) => {
                   try {
                     await handleGoogleSuccess(response);
-                    // Default Google users become "student"
                     localStorage.setItem(
                       "user",
                       JSON.stringify({
@@ -131,14 +146,10 @@ export default function SignupPage() {
                     );
                     router.push("/student/dashboard");
                   } catch (error) {
-                    console.error("Google signup failed:", error);
                     alert("Google signup failed. Please try again.");
                   }
                 }}
-                onError={(err) => {
-                  console.error("Google Signup Failed", err);
-                  alert("Google signup failed. Please try again.");
-                }}
+                onError={() => alert("Google signup failed.")}
                 text="signup_with"
               />
             )}
@@ -155,4 +166,3 @@ export default function SignupPage() {
     </div>
   );
 }
-  
