@@ -3,4 +3,6 @@ export { default as SignUp } from './sign_up';
 export { default as Dashboard } from './dashboard';
 export { default as AvailableExams } from './exams';    
 export { default as About } from './about';
+export { default as PartExam } from './copy_exam';
+export { default as Admin_page } from './admin_page';
 
