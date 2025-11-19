@@ -148,6 +148,10 @@
   color: #eee;
 }
 
+.switchText span {
+  cursor: pointer;
+}
+
 .switchLink {
   color: #00b3ff;
   text-decoration: none;

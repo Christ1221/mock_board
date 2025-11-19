@@ -24,21 +24,7 @@ export default function LogIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      if (formData.email.trim() && formData.password.trim()) {
-        localStorage.setItem('isAuthenticated', 'true');
-        localStorage.setItem(
-          'user',
-          JSON.stringify({ name: 'John Doe', email: formData.email })
-        );
-        router.push('/dashboard');
-      } else {
-        alert('Please enter both email and password.');
-      }
-    } catch (error) {
-      console.error('Login failed:', error);
-      alert('Login failed. Please try again.');
-    }
+    
   };
 
   const handleChange = (e) => {
