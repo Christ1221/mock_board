@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { handleGoogleSuccess } from "../../utilities/auth";
 
 export default function SignupPage() {
   const router = useRouter();

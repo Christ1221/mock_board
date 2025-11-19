@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from './css/styles.module.css';
-import { AuthGuard } from '../../utilities';
 
 export default function About() {
   const router = useRouter();
@@ -15,17 +14,6 @@ export default function About() {
     setActiveSection('about');
   }, []);
 
-  useEffect(() => {
-    try {
-      const userStr = localStorage.getItem('user');
-      if (userStr) {
-        setUserData(JSON.parse(userStr));
-      }
-    } catch (error) {
-      console.error('Error loading user data:', error);
-    }
-  }, []);
-
   const menuItems = [
     { id: 'home', label: 'Home', dir: '/dashboard' },
     { id: 'about', label: 'About', dir: '/about' },
@@ -34,7 +22,6 @@ export default function About() {
   ];
 
   return (
-    <AuthGuard>
       <div className={styles.dashboardContainer}>
         {/* Sidebar */}
         <aside className={styles.sidebar}>
@@ -116,6 +103,5 @@ export default function About() {
           </div>
         </main>
       </div>
-    </AuthGuard>
   );
 }

@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from './css/styles.module.css';
-import { AuthGuard } from '../../utilities';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -35,7 +34,6 @@ export default function Dashboard() {
   ];
 
   return (
-    <AuthGuard>
       <div className={styles.dashboardContainer}>
         {/* Sidebar */}
         <aside className={styles.sidebar}>
@@ -142,7 +140,6 @@ export default function Dashboard() {
           </div>
         </main>
       </div>
-    </AuthGuard>
   );
 
 }

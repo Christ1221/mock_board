@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./css/styles.module.css";
-import { AuthGuard } from "../../utilities"; // make sure this protects admin
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -37,7 +36,6 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <AuthGuard>
       <div className={styles.dashboardContainer}>
         {/* SIDEBAR */}
         <aside className={styles.sidebar}>
@@ -143,6 +141,5 @@ export default function AdminDashboard() {
           </div>
         </main>
       </div>
-    </AuthGuard>
   );
 }

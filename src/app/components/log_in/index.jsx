@@ -3,7 +3,6 @@ import styles from './css/styles.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { handleGoogleSuccess } from '../../utilities/auth';
 import Image from 'next/image';
 
 const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
