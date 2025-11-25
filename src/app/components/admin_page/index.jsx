@@ -12,8 +12,8 @@ export default function AdminDashboard() {
 
   const adminMenuItems = [
     { id: "adminHome", label: "Dashboard", dir: "/admin" },
-    { id: "manageUsers", label: "Manage Users", dir: "/admin/manage-users" },
-    { id: "manageExams", label: "Manage Exams", dir: "/admin/manage-exams" },
+    { id: "manageUsers", label: "Manage Users", dir: "/manage_users" },
+    { id: "manageExams", label: "Manage Exams", dir: "/manage_exams" },
     { id: "results", label: "Results", dir: "/admin/results" },
     
   ];
@@ -39,16 +39,7 @@ export default function AdminDashboard() {
       <div className={styles.dashboardContainer}>
         {/* SIDEBAR */}
         <aside className={styles.sidebar}>
-          <div className={styles.logo}>
-            <Image
-              src="/logo.png"
-              alt="Mock Board Logo"
-              width={90}
-              height={90}
-              className={styles.logoImage}
-            />
-            <p className={styles.adminTitle}>ADMIN PANEL</p>
-          </div>
+         
 
           <nav className={styles.nav}>
             {adminMenuItems.map((item) => (
