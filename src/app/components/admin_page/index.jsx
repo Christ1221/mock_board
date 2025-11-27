@@ -14,7 +14,7 @@ export default function AdminDashboard() {
     { id: "adminHome", label: "Dashboard", dir: "/admin" },
     { id: "manageUsers", label: "Manage Users", dir: "/manage_users" },
     { id: "manageExams", label: "Manage Exams", dir: "/manage_exams" },
-    { id: "results", label: "Results", dir: "/admin/results" },
+    { id: "results", label: "Results", dir: "/results" },
     
   ];
 
