@@ -21,7 +21,6 @@ export default async function Fetch_to(dir, payload = {}, headers = {}) {
     }
 
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error("Fetch_to error:", err);
     return null;
   }
