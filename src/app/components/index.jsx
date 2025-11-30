@@ -5,4 +5,7 @@ export { default as AvailableExams } from './exams';
 export { default as About } from './about';
 export { default as PartExam } from './copy_exam';
 export { default as Admin_page } from './admin_page';
+export { default as Manage_users } from './manage_users';
+export { default as Manage_exams } from './manage_exams';
+
 

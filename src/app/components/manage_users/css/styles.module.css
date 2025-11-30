@@ -1,0 +1,128 @@
+.dashboardContainer {
+  display: flex;
+  height: 100vh;
+  background: #f8f8fb;
+}
+
+.sidebar {
+  width: 240px;
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #e6e6e6;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navItem {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.active {
+  background: #6c63ff;
+  color: white;
+}
+.content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+.mainContent {
+  flex: 1;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.userName {
+  font-weight: 600;
+}
+
+.logoutBtn {
+  padding: 8px 14px;
+  background: #ff4d4f;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.breadcrumb {
+  color: gray;
+  margin-bottom: 20px;
+}
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.searchInput {
+  width: 260px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.addButton {
+  background: #6c63ff;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.actionBtns button {
+  margin-right: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.editIcon {
+  color: #6c63ff;
+}
+
+.deleteIcon {
+  color: #ff4d4f;
+}
