@@ -12,9 +12,8 @@ export default function ManageUsers() {
 
   const adminMenuItems = [
     { id: "adminHome", label: "Dashboard", dir: "/admin" },
-    { id: "manageUsers", label: "Manage Examinees", dir: "/manage_users" },
+    { id: "manageUsers", label: "Manage Users", dir: "/manage_users" },
     { id: "manageExams", label: "Manage Exams", dir: "/manage_exams" },
-    
   ];
 
   useEffect(() => {
@@ -82,8 +81,8 @@ export default function ManageUsers() {
 
         {/* MOCK BOARD EXAMINEES LIST */}
         <div className={styles.content}>
-          <h2 className={styles.sectionTitle}>Mock Board Examinees</h2>
-          <p className={styles.breadcrumb}>Home / Examinees</p>
+          <h2 className={styles.sectionTitle}>Manage Users</h2>
+          <p className={styles.breadcrumb}>User login history</p>
 
           {/* Search + Add Button */}
           <div className={styles.topBar}>

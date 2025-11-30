@@ -1,6 +1,6 @@
 'use client';
-import Manage_users from '../../components/admin_page';
+import { Manage_exams } from '../../components';
 
 export default function ManageUsersPage() {
-  return <Manage_users />;
+  return <Manage_exams />;
 }
